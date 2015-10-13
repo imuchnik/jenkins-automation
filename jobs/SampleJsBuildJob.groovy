@@ -16,7 +16,7 @@ folder(basePath) {
 
 
 new JsJobBuilder(
-        name: "WTF?",
+        name: "WTF",
         description: 'An example using a job builder for a Javascript build jobs project.',
         repos: repos,
         emails: developers,
