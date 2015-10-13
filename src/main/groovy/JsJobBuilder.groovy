@@ -23,8 +23,7 @@ class JsJobBuilder {
                 name: this.name,
                 description: this.description,
                 emails: this.emails,
-                use_versions: this.use_versions,
-//        some more testparams
+                use_versions: this.use_versions
         ).build(owner)
 
 
