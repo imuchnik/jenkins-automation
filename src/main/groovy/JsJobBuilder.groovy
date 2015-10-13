@@ -19,12 +19,12 @@ class JsJobBuilder {
 
     Job build(DslFactory factory) {
 
-        def baseJob = new BaseJobBuilder(
+        Job baseJob = new BaseJobBuilder(
                 name: this.name,
                 description: this.description,
                 emails: this.emails,
                 use_versions: this.use_versions
-        ).build(owner)
+        ).build(this)
 
 
         baseJob.with {
