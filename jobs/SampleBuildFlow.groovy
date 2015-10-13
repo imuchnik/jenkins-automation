@@ -1,4 +1,4 @@
-import FlowJobBuilder
+i mport FlowJobBuilder
 
 def oahMaster= new FlowJobBuilder(
         name: 'GeneratedFlowJob',
