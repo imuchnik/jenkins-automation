@@ -10,7 +10,7 @@ def cfGovDeployJob = new FlowJobBuilder(
 cfGovDeployJob.parameters {
     booleanParam('DEPLOY_DJANGO', true)
     booleanParam('DEPLOY_WP', true)
-    choiceParam('OPTION', ['Staging (defaul)',
+    choiceParam('OPTION', ['Staging (default)',
                            '***PRODUCTION(cfproweb01)***',
                            '*** PRODUCTION(cfproweb02)*** '])
 }
