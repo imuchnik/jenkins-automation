@@ -8,11 +8,14 @@ def cfGovDeployJob = new FlowJobBuilder(
 
 
 cfGovDeployJob.parameters {
-    booleanParam('DEPLOY_DJANGO', true)
-    booleanParam('DEPLOY_WP', true)
-    choiceParam('OPTION', ['Staging (default)',
-                           '***PRODUCTION(cfproweb01)***',
-                           '*** PRODUCTION(cfproweb02)*** '])
+    booleanParam('DEPLOY_DJANGO', false)
+    booleanParam('DEPLOY_WP', false)
+    choiceParam('OPTION',
+            [
+                    'Staging',
+                    '***PRODUCTION(cfproweb01)***',
+                    '*** PRODUCTION(cfproweb02)*** '
+            ])
 }
 cfGovDeployJob.buildFlow('''
             build("cf.gov-pfc-grunt-test")
