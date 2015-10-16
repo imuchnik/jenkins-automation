@@ -6,9 +6,7 @@ class FrontEndTestJobBuilder {
 
     String name
     String description
-    String gitBranch = 'master'
-    String pollScmSchedule = '@daily'
-    String tasks
+
     String junitResults = '**/build/test-results/*.xml'
     String artifacts = 'dist/'
     List<String> emails
@@ -25,18 +23,25 @@ class FrontEndTestJobBuilder {
                 use_versions: true
         ).build(factory)
 
-        print jsJob
 
         jsJob.steps {
 
-                shell(
-                        '''
+            shell(
+                    '''
                               cd $DIR_UNDER_TEST
                               ./frontendtest.sh
 
                               '''
-                )
+            )
+        }
+
+        jsJob.publishers {
+            archiveXUnit {
+                jUnit {
+                    pattern(junitResults)
+                }
             }
 
+        }
     }
 }

@@ -6,11 +6,17 @@ class BaseJobBuilder {
     String description
     List<String> emails
     Boolean use_versions
+    String pollScmSchedule = '@daily'
+
 
     Job build(DslFactory factory){
         factory.job(name){
             it.description this.description
             addBaseStuff(delegate,this.emails)
+
+            triggers {
+                scm pollScmSchedule
+            }
         }
     }
 
