@@ -53,8 +53,10 @@ class JsJobBuilder {
 //                )
 //            }
 
-            publishers {
-                archiveArtifacts artifacts
+            if (artifacts) {
+                publishers {
+                    archiveArtifacts artifacts
+                }
             }
 
         }
