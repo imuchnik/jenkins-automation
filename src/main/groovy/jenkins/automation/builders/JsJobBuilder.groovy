@@ -1,7 +1,8 @@
-package jenkins.automation.utils
+package jenkins.automation.builders
 
 import javaposse.jobdsl.dsl.DslFactory
 import javaposse.jobdsl.dsl.Job
+import jenkins.automation.utils.ScmUtils
 
 class JsJobBuilder {
 
@@ -11,7 +12,11 @@ class JsJobBuilder {
     String pollScmSchedule = '@daily'
     String tasks
     String junitResults = '**/build/test-results/*.xml'
-    String artifacts = 'dist/'
+    def artifacts = {
+        pattern("dist/")
+        fingerprint()
+        defaultExcludes()
+    }
     List<String> emails
     Boolean use_versions
 
@@ -48,8 +53,10 @@ class JsJobBuilder {
 //                )
 //            }
 
-            publishers {
-                archiveArtifacts artifacts
+            if (artifacts) {
+                publishers {
+                    archiveArtifacts artifacts
+                }
             }
 
         }
