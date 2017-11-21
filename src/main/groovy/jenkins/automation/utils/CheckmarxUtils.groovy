@@ -206,7 +206,7 @@ class CheckmarxUtils {
 */
     static Map checkmarxConfigDefaults = [
         useOwnServerCredentials: false,
-        preset: "17", // "Default 2014"
+        preset: "36", // "Checkmarx Default"
         excludeFolders: "resources, .git",
         incremental: true,
         fullScanCycle: "10",
