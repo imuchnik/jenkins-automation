@@ -9,7 +9,6 @@ class my_job_test extends Specification {
         given:
         JobManagement jm = new MemoryJobManagement()
 
-
         def testjob = new File('example-jobs/pipeline_job.groovy').text
 
 
