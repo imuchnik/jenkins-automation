@@ -89,7 +89,16 @@ class CommonUtils {
     /**
      *
      * @param context Closure context, i.e delegate
-     * @param params Maps of params
+     * @param params Maps of params the accepted values are as follows:
+     * emails: <String>, please note it does not support ArrayList
+     * triggers: <Array> ["failure", "unstable", "fixed"],
+     * sendToDevs:<Boolean>,
+     * sendToRequester:<Boolean>,
+     * includeCulprits:<Boolean>, s
+     * endToRecipient:<Boolean>,
+     * preSendScript = <String>,
+     * attachmentPattern = <String>
+     *
      *  @see <a href="https://github.com/cfpb/jenkins-automation/blob/gh-pages/docs/examples.md#common-utils" target="_blank">Common utils</a>
      */
     static void addExtendedEmail(Map params, context) {
